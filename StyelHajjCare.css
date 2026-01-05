@@ -7,6 +7,39 @@
 
 body { font-family: 'Tahoma', sans-serif; background: #fff; margin: 0; direction: rtl; }
 
+/* تنسيق الهيدر الثابت */
+.navbar {
+    position: fixed;      /* جعل الهيدر ثابتاً */
+    top: 0;               /* تثبيته في أعلى الشاشة */
+    right: 0;             /* تثبيته من اليمين */
+    left: 0;              /* تثبيته من اليسار */
+    z-index: 1000;        /* التأكد من ظهوره فوق كل المحتوى */
+    background: #ffffff;  /* لون خلفية صلب لكي لا يظهر المحتوى خلفه */
+    height: 70px;         /* تحديد ارتفاع ثابت للهيدر */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* ظل خفيف لتمييز الهيدر عن المحتوى */
+}
+
+/* تعديل مهم جداً للمحتوى الذي يلي الهيدر */
+body {
+    padding-top: 70px;    /* يجب أن يكون مساوياً لارتفاع الهيدر لكي لا يختفي أول جزء من الصفحة */
+}
+
+/* في حالة الكمبيوتر، قد نحتاج لزيادة مساحة الـ Padding */
+@media (min-width: 992px) {
+    .navbar {
+        height: 85px;
+        padding: 0 10%;
+    }
+    body {
+        padding-top: 85px;
+    }
+}
+
+
 /* Navbar */
 .navbar { display: flex; justify-content: space-between; padding: 15px 5%; align-items: center; border-bottom: 1px solid #eee; }
 .logo img { height: 40px; }
