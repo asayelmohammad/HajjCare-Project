@@ -63,3 +63,26 @@ document.addEventListener('DOMContentLoaded', () => {
         // يمكنك هنا إضافة كود فتح Sidebar
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // العثور على زر "عرض الكل" في الصفحة الرئيسية
+    const viewAllBtn = document.querySelector('.view-all');
+    
+    if (viewAllBtn) {
+        viewAllBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // انتقال سلس لصفحة المستشفيات
+            window.location.href = 'hospitals.html';
+        });
+    }
+
+    // إضافة تأثير الضغط على كروت المستشفيات
+    const cards = document.querySelectorAll('.hospital-card-long');
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const hospitalName = card.querySelector('h3').innerText;
+            console.log("الانتقال إلى تفاصيل: " + hospitalName);
+            // هنا يمكنك التوجيه لصفحة تفاصيل المستشفى مستقبلاً
+        });
+    });
+});

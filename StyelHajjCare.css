@@ -71,3 +71,88 @@ body { font-family: 'Tahoma', sans-serif; background: #fff; margin: 0; direction
     
     .section { padding: 60px 10%; }
 }
+/* تنسيق صفحة عرض الكل */
+.hospital-list-full {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 50px;
+}
+
+.hospital-card-long {
+    background: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    transition: 0.3s;
+}
+
+.hospital-card-long:hover {
+    transform: scale(1.02);
+}
+
+.hospital-card-long .img-box {
+    position: relative;
+    height: 200px;
+}
+
+.hospital-card-long .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* تاغات النوع (حكومي / خاص) */
+.type-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 15px;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.type-tag.gov { background-color: #0b4d3d; } /* أخضر داكن */
+.type-tag.private { background-color: #125b50; } /* أخضر أفتح قليلاً للخاص */
+
+.details {
+    padding: 20px;
+    text-align: right;
+}
+
+.details h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.distance {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+}
+
+.tags .tag {
+    background: #f4f1ea;
+    color: #0b4d3d;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+/* تحسين الكمبيوتر لصفحة عرض الكل */
+@media (min-width: 768px) {
+    .hospital-list-full {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
