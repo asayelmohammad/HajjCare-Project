@@ -11,8 +11,34 @@
 
     <header class="navbar">
         <div class="logo"><img src="img/logo.png" alt="Logo"></div>
-        <div class="menu-icon"><i class="fas fa-bars"></i></div>
+        <div class="menu-toggle" id="openMenu"><i class="fas fa-bars"></i></div>
     </header>
+
+    <!-- الخلفية الضبابية -->
+        <div class="overlay" id="overlay"></div>
+
+    <!-- القائمة الجانبية -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>القائمة</h3>
+            <div class="close-btn" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="Hajjcare.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="hospitals.html"><i class="fas fa-hospital"></i> المستشفيات</a></li>
+            <li><a href="#dor"><i class="fas fa-user-md"></i> الأطباء</a></li>
+            <li><a href="#ser"><i class="fas fa-briefcase-medical"></i> الخدمات الطبية</a></li>
+            <li><a href="#"><i class="fas fa-heartbeat"></i> الفحوصات</a></li>
+            <li><a href="#"><i class="fas fa-phone-alt"></i> اتصل بنا</a></li>
+        </ul>
+
+         <!--<div style="margin-top: auto; padding-top: 20px; border-top: 1px solid #eee;">
+            <p style="font-size: 0.8rem; color: #888; text-align: center;">نسخة التطبيق 1.0.4</p>
+         </div>-->
+    </nav>
 
     <section class="hero">
         <div class="hero-content">
@@ -28,7 +54,7 @@
         </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="ser">
         <h2 class="section-title">خدماتنا</h2>
         <div class="services-list">
             <div class="service-item">
@@ -106,7 +132,7 @@
         </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="dor">
         <h2 class="section-title">أفضل الأطباء</h2>
         <div class="doctors-list">
             <div class="doctor-card">

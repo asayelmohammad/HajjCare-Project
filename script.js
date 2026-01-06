@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    window.addEventListener('scroll', () => {
+    /*window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
         navbar.style.background = '#ffffff';
@@ -14,7 +14,35 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
     }
-});
+});*/
+
+
+    const openMenu = document.getElementById('openMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        // وظيفة فتح القائمة
+        const toggleSidebar = () => {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            // منع التمرير في الصفحة عند فتح القائمة
+            document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : 'auto';
+        };
+
+        openMenu.addEventListener('click', toggleSidebar);
+        closeMenu.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+
+        // إغلاق القائمة عند الضغط على الروابط
+        const menuLinks = document.querySelectorAll('.sidebar-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
 
 
     const observer = new IntersectionObserver((entries) => {
