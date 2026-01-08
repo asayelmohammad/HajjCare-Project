@@ -14,36 +14,88 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
     }
-});*/
+     });*/
 
 
     const openMenu = document.getElementById('openMenu');
-        const closeMenu = document.getElementById('closeMenu');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
+    const closeMenu = document.getElementById('closeMenu');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
 
-        // وظيفة فتح القائمة
-        const toggleSidebar = () => {
-            sidebar.classList.toggle('active');
-            overlay.classList.toggle('active');
-            // منع التمرير في الصفحة عند فتح القائمة
+    // وظيفة فتح القائمة
+    const toggleSidebar = () => {
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+
+    // منع التمرير في الصفحة عند فتح القائمة
             document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : 'auto';
         };
 
-        openMenu.addEventListener('click', toggleSidebar);
-        closeMenu.addEventListener('click', toggleSidebar);
-        overlay.addEventListener('click', toggleSidebar);
+    openMenu.addEventListener('click', toggleSidebar);
+    closeMenu.addEventListener('click', toggleSidebar);
+    overlay.addEventListener('click', toggleSidebar);
 
-        // إغلاق القائمة عند الضغط على الروابط
-        const menuLinks = document.querySelectorAll('.sidebar-menu a');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
+    // إغلاق القائمة عند الضغط على الروابط
+    const menuLinks = document.querySelectorAll('.sidebar-menu a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
             });
         });
 
+
+    // --- إدارة الموقع الجغرافي ---
+        const locationStatus = document.getElementById('locationStatus');
+        
+        function updateLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude.toFixed(4);
+                        const lng = position.coords.longitude.toFixed(4);
+                        locationStatus.innerHTML = `
+                            <i class="fas fa-check-circle" style="color: #27ae60"></i>
+                            <span>تم تحديد موقعك: ${lat}, ${lng} (عرض الأقرب لك)</span>
+                        `;
+                        // هنا يمكن إرسال الإحداثيات للباك أند مستقبلاً
+                    },
+                    (error) => {
+                        locationStatus.innerHTML = `
+                            <i class="fas fa-exclamation-triangle" style="color: #e67e22"></i>
+                            <span>يرجى تفعيل الموقع الجغرافي لرؤية أقرب المستشفيات</span>
+                        `;
+                    }
+                );
+            }
+        }
+
+        // تشغيل تحديد الموقع عند فتح الصفحة
+        window.onload = updateLocation;
+        document.getElementById('locationBtn').onclick = updateLocation;
+
+        // --- إدارة نافذة تسجيل الدخول ---
+        const loginModal = document.getElementById('loginModal');
+        const openLogin = document.getElementById('loginBtn');
+        const closeModal = document.getElementById('closeModal');
+
+        openLogin.onclick = () => loginModal.style.display = 'flex';
+        closeModal.onclick = () => loginModal.style.display = 'none';
+        
+        // إغلاق عند الضغط خارج الكارد
+        window.onclick = (event) => {
+            if (event.target == loginModal) {
+                loginModal.style.display = 'none';
+            }
+        }
+
+        // معالجة نموذج الدخول (تجريبي)
+        document.getElementById('loginForm').onsubmit = (e) => {
+            e.preventDefault();
+            alert("سيتم ربط عملية تسجيل الدخول بالباك أند PHP قريباً!");
+            loginModal.style.display = 'none';
+        }
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
