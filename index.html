@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#EDE9E0">
     <title>رعايه الحاج</title>
     <link rel="stylesheet" href="StyelHajjCare.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -18,8 +19,8 @@
             <div class="icon-btn" id="loginBtn">
                 <i class="fas fa-user"></i>
             </div>
+             <div class="menu-toggle" id="openMenu"><i class="fas fa-bars"></i></div>
         </div>
-        <div class="menu-toggle" id="openMenu"><i class="fas fa-bars"></i></div>
     </header>
 
     <!-- الخلفية الضبابية -->
@@ -56,20 +57,21 @@
                 <h2>تسجيل الدخول</h2>
                 <p>مرحباً بك مجدداً في رعاية الحجيج</p>
             </div>
-            <form id="loginForm">
+            <form id="loginForm" method="POST" action="">
                 <div class="form-group">
                     <label>البريد الإلكتروني</label>
-                    <input type="email" placeholder="example@mail.com" required>
+                    <input type="email" name="email" placeholder="example@mail.com" required>
                 </div>
                 <div class="form-group">
                     <label>كلمة المرور</label>
-                    <input type="password" placeholder="********" required>
+                    <input type="password" name="password" placeholder="********" required>
                 </div>
-                <button type="submit" class="btn-login">دخول</button>
-            </form>
+                <button type="submit" name="login" class="btn-login">دخول</button>
+            </form> 
             <div class="switch-auth">
-                ليس لديك حساب؟ <span id="toRegister">إنشاء حساب جديد</span>
+                ليس لديك حساب؟ <a href="register.php">إنشاء حساب جديد</a>
             </div>
+            
         </div>
     </div>
 
@@ -169,28 +171,40 @@
         <h2 class="section-title">أفضل الأطباء</h2>
         <div class="doctors-list">
             <div class="doctor-card">
-                <img src="doc1.png" alt="">
+                <div class="doctor-avatar">
+                    <img src="doc1.png" alt="Doctor"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                   <i class="fas fa-user-doctor"></i>
+                </div>
                 <div class="doc-info">
-                    <h4 class="per">د. أحمد محمود</h4>
-                    <p class="per">استشاري جراحة القلب</p>
+                    <h4 class="per">د. خالد الزهراني   </h4>
+                    <p class="per">استشاري الجراحه العامه </p>
                 </div>
                 <span class="badge">مميز</span>
             </div>
             <div class="doctor-card">
-                <img src="doc2.png" alt="">
-                <div class="doc-info">
-                    <h4 class="per">د. سارة العتيبي</h4>
-                    <p class="per">أخصائية طب الأطفال</p>
+                <div class="doctor-avatar">
+                    <img src="doc1.png" alt="Doctor"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                   <i class="fas fa-user-doctor"></i>
                 </div>
-                <span class="badge">مميز</span>
+                <div class="doc-info">
+                    <h4 class="per">د. محمد زياد</h4>
+                    <p class="per">أخصائية قلب واوعيه دمويه</p>
+                </div>
+                <span class="badge">مميز </span>
             </div>
             <div class="doctor-card">
-                <img src="doc3.png" alt="">
+                <div class="doctor-avatar">
+                    <img src="doc1.png" alt="Doctor"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                   <i class="fas fa-user-doctor"></i>
+                </div>
                 <div class="doc-info">
                     <h4 class="per">د. عبد الله سليم</h4>
                     <p class="per">استشاري طب وجراحة العيون</p>
                 </div>
-                <span class="badge">مميز</span>
+                <span class="badge"> مميز</span>
             </div>
         </div>
     </section>
