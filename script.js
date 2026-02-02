@@ -1,20 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // 1. تأثير الظهور التدريجي للعناصر (Scroll Reveal)
     const observerOptions = {
         threshold: 0.1
     };
 
 
-    /*window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = '#ffffff';
-        navbar.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-    }
-     });*/
+
 
 
     const openMenu = document.getElementById('openMenu');
@@ -24,12 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // وظيفة فتح القائمة
     const toggleSidebar = () => {
-    sidebar.classList.toggle('active');
-    overlay.classList.toggle('active');
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
 
-    // منع التمرير في الصفحة عند فتح القائمة
-            document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : 'auto';
-        };
+        // منع التمرير في الصفحة عند فتح القائمة
+        document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : 'auto';
+    };
 
     openMenu.addEventListener('click', toggleSidebar);
     closeMenu.addEventListener('click', toggleSidebar);
@@ -42,60 +34,60 @@ document.addEventListener('DOMContentLoaded', () => {
             sidebar.classList.remove('active');
             overlay.classList.remove('active');
             document.body.style.overflow = 'auto';
-            });
         });
+    });
 
 
     // --- إدارة الموقع الجغرافي ---
-        const locationStatus = document.getElementById('locationStatus');
-        
-        function updateLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        const lat = position.coords.latitude.toFixed(4);
-                        const lng = position.coords.longitude.toFixed(4);
-                        locationStatus.innerHTML = `
+    const locationStatus = document.getElementById('locationStatus');
+
+    function updateLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const lat = position.coords.latitude.toFixed(4);
+                    const lng = position.coords.longitude.toFixed(4);
+                    locationStatus.innerHTML = `
                             <i class="fas fa-check-circle" style="color: #27ae60"></i>
                             <span>تم تحديد موقعك: ${lat}, ${lng} (عرض الأقرب لك)</span>
                         `;
-                        // هنا يمكن إرسال الإحداثيات للباك أند مستقبلاً
-                    },
-                    (error) => {
-                        locationStatus.innerHTML = `
+                    // هنا يمكن إرسال الإحداثيات للباك أند مستقبلاً
+                },
+                (error) => {
+                    locationStatus.innerHTML = `
                             <i class="fas fa-exclamation-triangle" style="color: #e67e22"></i>
                             <span>يرجى تفعيل الموقع الجغرافي لرؤية أقرب المستشفيات</span>
                         `;
-                    }
-                );
-            }
+                }
+            );
         }
+    }
 
-        // تشغيل تحديد الموقع عند فتح الصفحة
-        window.onload = updateLocation;
-        document.getElementById('locationBtn').onclick = updateLocation;
+    // تشغيل تحديد الموقع عند فتح الصفحة
+    window.onload = updateLocation;
+    document.getElementById('locationBtn').onclick = updateLocation;
 
-        // --- إدارة نافذة تسجيل الدخول ---
-        const loginModal = document.getElementById('loginModal');
-        const openLogin = document.getElementById('loginBtn');
-        const closeModal = document.getElementById('closeModal');
+    // --- إدارة نافذة تسجيل الدخول ---
+    const loginModal = document.getElementById('loginModal');
+    const openLogin = document.getElementById('loginBtn');
+    const closeModal = document.getElementById('closeModal');
 
-        openLogin.onclick = () => loginModal.style.display = 'flex';
-        closeModal.onclick = () => loginModal.style.display = 'none';
-        
-        // إغلاق عند الضغط خارج الكارد
-        window.onclick = (event) => {
-            if (event.target == loginModal) {
-                loginModal.style.display = 'none';
-            }
-        }
+    openLogin.onclick = () => loginModal.style.display = 'flex';
+    closeModal.onclick = () => loginModal.style.display = 'none';
 
-        // معالجة نموذج الدخول (تجريبي)
-        document.getElementById('loginForm').onsubmit = (e) => {
-            e.preventDefault();
-            alert("سيتم ربط عملية تسجيل الدخول بالباك أند PHP قريباً!");
+    // إغلاق عند الضغط خارج الكارد
+    window.onclick = (event) => {
+        if (event.target == loginModal) {
             loginModal.style.display = 'none';
         }
+    }
+
+    // معالجة نموذج الدخول (تجريبي)
+    document.getElementById('loginForm').onsubmit = (e) => {
+        e.preventDefault();
+        alert("سيتم ربط عملية تسجيل الدخول بالباك أند PHP قريباً!");
+        loginModal.style.display = 'none';
+    }
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -121,11 +113,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // 2. تفاعلية البحث (تنبيه عند البحث الفارغ)
-    const searchBtn = document.querySelector('.search-bar button');
-    const searchInput = document.querySelector('.search-bar input');
+    const searchBtn = document.querySelector('.search-box button');
+    const searchInput = document.querySelector('.search-box input');
 
     searchBtn.addEventListener('click', () => {
-        if(searchInput.value.trim() === "") {
+        if (searchInput.value.trim() === "") {
             searchInput.style.border = "1px solid red";
             setTimeout(() => searchInput.style.border = "none", 2000);
         } else {
@@ -159,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     // العثور على زر "عرض الكل" في الصفحة الرئيسية
     const viewAllBtn = document.querySelector('.view-all');
-    
+
     if (viewAllBtn) {
         viewAllBtn.addEventListener('click', (e) => {
             e.preventDefault();

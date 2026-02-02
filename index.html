@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#EDE9E0">
     <title>رعايه الحاج</title>
     <link rel="stylesheet" href="StyelHajjCare.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
     <header class="navbar">
@@ -19,12 +24,12 @@
             <div class="icon-btn" id="loginBtn">
                 <i class="fas fa-user"></i>
             </div>
-             <div class="menu-toggle" id="openMenu"><i class="fas fa-bars"></i></div>
+            <div class="menu-toggle" id="openMenu"><i class="fas fa-bars"></i></div>
         </div>
     </header>
 
     <!-- الخلفية الضبابية -->
-        <div class="overlay" id="overlay"></div>
+    <div class="overlay" id="overlay"></div>
 
     <!-- القائمة الجانبية -->
     <nav class="sidebar" id="sidebar">
@@ -34,7 +39,7 @@
                 <i class="fas fa-times"></i>
             </div>
         </div>
-        
+
         <ul class="sidebar-menu">
             <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
             <li><a href="hospitals.html"><i class="fas fa-hospital"></i> المستشفيات</a></li>
@@ -44,7 +49,7 @@
             <li><a href="#"><i class="fas fa-phone-alt"></i> اتصل بنا</a></li>
         </ul>
 
-         <!--<div style="margin-top: auto; padding-top: 20px; border-top: 1px solid #eee;">
+        <!--<div style="margin-top: auto; padding-top: 20px; border-top: 1px solid #eee;">
             <p style="font-size: 0.8rem; color: #888; text-align: center;">نسخة التطبيق 1.0.4</p>
          </div>-->
     </nav>
@@ -67,25 +72,53 @@
                     <input type="password" name="password" placeholder="********" required>
                 </div>
                 <button type="submit" name="login" class="btn-login">دخول</button>
-            </form> 
+            </form>
             <div class="switch-auth">
                 ليس لديك حساب؟ <a href="register.php">إنشاء حساب جديد</a>
             </div>
-            
+
         </div>
     </div>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>رعايتك الصحية تبدأ من هنا</h1>
-            <p>حلول الرعاية الصحية المبتكرة لخدمة ضيوف الرحمن بأعلى معايير الجودة والتميز.</p>
-            <div class="search-bar">
-                <input type="text" placeholder="ابحث عن..">
-                <button><i class="fas fa-search"></i></button>
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">رعاية صحية متكاملة</span>
+                <h1>رعايتك الصحية <br> <span class="highlight">تبدأ من هنا</span></h1>
+                <p>حلول الرعاية الصحية المبتكرة لخدمة ضيوف الرحمن بأعلى معايير الجودة والتميز. نوفر لك المعلومات الطبية
+                    والدعم الفوري في كل خطوة.</p>
+
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="ابحث عن مركز صحي، طبيب، أو معلومة..">
+                    <button>بحث</button>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <strong>+20</strong>
+                        <span>مستشفى</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>24/7</strong>
+                        <span>دعم طبي</span>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="hero-image">
-            <img src="img/hajj hospital.png" alt="Hospital Icon">
+
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="img/hajj hospital.png" alt="مستشفى رعاية الحج">
+                    <div class="floating-card c1">
+                        <i class="fas fa-user-md"></i>
+                        <span>أطباء متخصصون</span>
+                    </div>
+                    <div class="floating-card c2">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>رعاية عاجلة</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -102,7 +135,7 @@
             <div class="service-item">
                 <div class="icon-box"><i class="fas fa-user-md"></i></div>
                 <div class="text">
-                    <h3> حكومي أم خاص  </h3>
+                    <h3> حكومي أم خاص </h3>
                     <p>قارن بين المستشفيات حسب التخصصات المتاحه </p>
                 </div>
             </div>
@@ -124,15 +157,18 @@
         <div class="hospital-grid">
             <div class="hospital-card-long">
                 <div class="img-container">
-                 <img src="img/Noor hospital.png" alt="logo">
-                 <span class="status open">حكومي</span>
+                    <img src="img/Noor hospital.png" alt="logo">
+                    <span class="status open">حكومي</span>
                 </div>
                 <div class="card-body">
                     <h3>مستشفى النور التخصصي </h3>
                     <p><i class="fas fa-map-marker-alt"></i> مكة - 2.5 كم</p>
                     <div class="card-footer">
-                        <button class="btn-p" onclick="window.open('https://maps.app.goo.gl/FnWTGne5cZVtW54h8','-blank')">رؤية الموقع</button>
-                        <button class="btn-s" onclick="window.open('https://nsh.moh.gov.sa/','-blank')">التفاصيل</button>
+                        <button class="btn-p"
+                            onclick="window.open('https://maps.app.goo.gl/FnWTGne5cZVtW54h8','-blank')">رؤية
+                            الموقع</button>
+                        <button class="btn-s"
+                            onclick="window.open('https://nsh.moh.gov.sa/','-blank')">التفاصيل</button>
                     </div>
                 </div>
             </div>
@@ -145,8 +181,11 @@
                     <h3>مستشفى الملك عبد العزيز</h3>
                     <p><i class="fas fa-map-marker-alt"></i> مكه - 3.8 كم</p>
                     <div class="card-footer">
-                        <button class="btn-p" onclick="window.open('https://maps.app.goo.gl/EzCphC7g4z8ptjhh9','-blank')">رؤية الموقع</button>
-                        <button class="btn-s" onclick="window.open('https://kaahospital.com/','-blank')">التفاصيل</button>
+                        <button class="btn-p"
+                            onclick="window.open('https://maps.app.goo.gl/EzCphC7g4z8ptjhh9','-blank')">رؤية
+                            الموقع</button>
+                        <button class="btn-s"
+                            onclick="window.open('https://kaahospital.com/','-blank')">التفاصيل</button>
                     </div>
                 </div>
             </div>
@@ -159,8 +198,11 @@
                     <h3>المستشفى السعودي الالماني</h3>
                     <p><i class="fas fa-map-marker-alt"></i> مكة - 1.2 كم</p>
                     <div class="card-footer">
-                        <button class="btn-p" onclick="window.open('https://maps.app.goo.gl/hDtfGjNe3nmF71jw8','-blank')">رؤية الموقع</button>
-                        <button class="btn-s" onclick="window.open('https://makkah.saudigermanhealth.com/ar','-blank')">التفاصيل</button>
+                        <button class="btn-p"
+                            onclick="window.open('https://maps.app.goo.gl/hDtfGjNe3nmF71jw8','-blank')">رؤية
+                            الموقع</button>
+                        <button class="btn-s"
+                            onclick="window.open('https://makkah.saudigermanhealth.com/ar','-blank')">التفاصيل</button>
                     </div>
                 </div>
             </div>
@@ -173,11 +215,11 @@
             <div class="doctor-card">
                 <div class="doctor-avatar">
                     <img src="doc1.png" alt="Doctor"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                   <i class="fas fa-user-doctor"></i>
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <i class="fas fa-user-doctor"></i>
                 </div>
                 <div class="doc-info">
-                    <h4 class="per">د. خالد الزهراني   </h4>
+                    <h4 class="per">د. خالد الزهراني </h4>
                     <p class="per">استشاري الجراحه العامه </p>
                 </div>
                 <span class="badge">مميز</span>
@@ -185,8 +227,8 @@
             <div class="doctor-card">
                 <div class="doctor-avatar">
                     <img src="doc1.png" alt="Doctor"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                   <i class="fas fa-user-doctor"></i>
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <i class="fas fa-user-doctor"></i>
                 </div>
                 <div class="doc-info">
                     <h4 class="per">د. محمد زياد</h4>
@@ -197,8 +239,8 @@
             <div class="doctor-card">
                 <div class="doctor-avatar">
                     <img src="doc1.png" alt="Doctor"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                   <i class="fas fa-user-doctor"></i>
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <i class="fas fa-user-doctor"></i>
                 </div>
                 <div class="doc-info">
                     <h4 class="per">د. عبد الله سليم</h4>
@@ -212,26 +254,87 @@
     <section class="section categories">
         <h2 class="section-title">تصفح حسب التخصص</h2>
         <div class="specialty-grid">
-            <div class="specialty-item"><i class="fas fa-heart"></i><p>القلب</p></div>
-            <div class="specialty-item"><i class="fas fa-brain"></i><p>الأعصاب</p></div>
-            <div class="specialty-item"><i class="fas fa-eye"></i><p>العيون</p></div>
-            <div class="specialty-item"><i class="fas fa-pills"></i><p>الأدوية</p></div>
-            <div class="specialty-item"><i class="fas fa-teeth"></i><p>الأسنان</p></div>
-            <div class="specialty-item"><i class="fas fa-child"></i><p>الأطفال</p></div>
+            <div class="specialty-item"><i class="fas fa-heart"></i>
+                <p>القلب</p>
+            </div>
+            <div class="specialty-item"><i class="fas fa-brain"></i>
+                <p>الأعصاب</p>
+            </div>
+            <div class="specialty-item"><i class="fas fa-eye"></i>
+                <p>العيون</p>
+            </div>
+            <div class="specialty-item"><i class="fas fa-pills"></i>
+                <p>الأدوية</p>
+            </div>
+            <div class="specialty-item"><i class="fas fa-teeth"></i>
+                <p>الأسنان</p>
+            </div>
+            <div class="specialty-item"><i class="fas fa-child"></i>
+                <p>الأطفال</p>
+            </div>
         </div>
         <button class="btn-full">مشاهدة جميع التخصصات</button>
     </section>
 
     <footer class="main-footer">
-        <h3>رعايتكم الصحية أولويتنا</h3>
-        <p>بكم ومعكم نرتقي بصحة المجتمع</p>
-        <p>اتصل بنا: 9200000</p>
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="img/logo.png" alt="Raya Logo">
+                    <h3>رعايتكم أولويتنا</h3>
+                </div>
+                <p>منصة رقمية شاملة لخدمة ضيوف الرحمن، توفر الوصول السريع للخدمات الصحية والمعلومات الطبية الموثوقة في
+                    مكة والمدينة.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="hospitals.html">المستشفيات</a></li>
+                    <li><a href="#dor">الأطباء</a></li>
+                    <li><a href="#ser">الخدمات</a></li>
+                    <li><a href="#">من نحن</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>تواصل معنا</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone-alt"></i> <span>920000000</span></li>
+                    <li><i class="fas fa-envelope"></i> <span>support@hajjcare.com</span></li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span>مكة المكرمة، المملكة العربية السعودية</span></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>القائمة البريدية</h3>
+                <p>اشترك ليصلك كل جديد حول الخدمات الصحية.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="البريت الإلكتروني">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
     </footer>
 
     <footer class="last-footer">
-        <p>&copy; 2024 رعاية الحج. جميع الحقوق محفوظة.</p>
+        <div class="footer-bottom-content">
+            <p>&copy; 2024 رعاية الحج. جميع الحقوق محفوظة.</p>
+            <div class="footer-bottom-links">
+                <a href="#">سياسة الخصوصية</a>
+                <a href="#">شروط الاستخدام</a>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
